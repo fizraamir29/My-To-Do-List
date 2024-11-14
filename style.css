@@ -1,0 +1,396 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Mobile first approach for responsiveness */
+@media (max-width: 768px) {
+    /* Navbar turns into a hamburger menu */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Hide the navbar items and show a hamburger icon */
+    .navbar ul {
+        display: none; /* Hide the navbar items */
+    }
+
+    /* Show sidebar when hamburger is clicked */
+    .navbar.show-menu ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #2f3634; /* Matches page color */
+        position: fixed;
+        top: 50px; /* Below the navbar */
+        left: 0;
+        width: 200px;
+        height: 100vh;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Adjust task box layout for mobile */
+    .box {
+        width: 100%; /* Full width on mobile */
+        padding: 20px;
+        margin: 10px;
+    }
+}
+
+/* Navbar Styling */
+.navbar {
+    width: 100%;
+    background-color: #2f3634;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+
+.navbar ul.active {
+    display: block;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color:white;
+    font-weight: 600;
+    font-size: 1em;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #4aa6f8;
+}
+
+/* Body Styling */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: #2f3634;
+    padding: 0;
+    margin: 0;
+}
+
+/* Container Styling */
+.container {
+    margin-top: 30px;
+    padding: 20px;
+    width: 100%;
+    max-width: 450px;
+}
+
+/* Box Styling */
+.box {
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+    background: #2f363e;
+    padding: 30px 50px;
+    box-shadow: 
+        25px 25px 75px rgba(0, 0, 0, 0.25),
+        10px 10px 70px rgba(0, 0, 0, 0.25),
+        inset 5px 5px 10px rgba(0, 0, 0, 0.5),
+        inset -5px -5px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Header Styling */
+h2 {
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    font-size: 1.75rem;
+    margin-bottom: 10px;
+}
+
+/* Input Box Styling */
+#inputBx {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 15px 20px;
+    border-radius: 30px;
+    font-size: 1em;
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25), inset 2px 2px 5px rgba(0, 0, 0, 0.5), inset -3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* List Item (li) Styling */
+.box li {
+    font-size: 1em;
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25), inset 2px 2px 5px rgba(0, 0, 0, 0.5), inset -3px 3px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    background: #1f83f2;
+    margin: 15px 0;
+    padding: 10px;
+    min-height: 45px;
+    cursor: pointer;
+    border-radius: 22.5px;
+    color: #fff;
+}
+
+/* Add this to style the check icon */
+.box li.done::before {
+    content: "✔"; /* Check icon */
+    margin-right: 10px;
+    font-size: 18px;
+    color: green; /* Color for the check icon */
+    display: inline-block;
+}
+
+/* Done Class Styling */
+.box li.done {
+    text-decoration: line-through;
+    color: gray;
+    background: #f00;
+}
+
+/* Hover Effect for List Items */
+.box li:hover {
+    background: #156ac5;
+}
+
+/* Footer Styling */
+.footer {
+    margin-top: auto;
+    width: 100%;
+    padding: 15px;
+    background-color: #2f3634;
+    color: #fff;
+    text-align: center;
+    font-size: 0.9em;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .box {
+        padding: 20px 30px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .navbar ul {
+        gap: 15px;
+    }
+
+    .navbar ul li a {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+
+    #inputBx {
+        padding: 12px 18px;
+    }
+
+    .box li {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    .footer {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .box {
+        padding: 15px 20px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+    }
+
+    .navbar ul li a {
+        font-size: 0.8em;
+        padding: 5px 10px;
+    }
+
+    #inputBx {
+        padding: 10px 15px;
+    }
+
+    .box li {
+        font-size: 0.8em;
+        padding: 6px;
+    }
+
+    .footer {
+        font-size: 0.75em;
+    }
+}
+
+/* Input Group Styling */
+.input-group {
+    margin-bottom: 20px;
+}
+
+/* Login Input Styling */
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25), inset 2px 2px 5px rgba(0, 0, 0, 0.5), inset -3px 3px 5px rgba(0, 0, 0, 0.5);
+    background: #2f3634;
+    color: white;
+}
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background: #1f83f2;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25);
+    transition: background 0.3s;
+}
+
+.login-btn:hover {
+    background: #156ac5;
+}
+
+/* GitHub Login Button */
+.github-login-btn {
+    width: 100%;
+    padding: 15px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25);
+    transition: background 0.3s;
+}
+
+.github-login-btn:hover {
+    background: #222;
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column; /* Align items vertically */
+        align-items: flex-start; /* Align items to the left */
+        padding: 0;
+        margin: 0;
+    }
+
+    .navbar ul li {
+        width: 100%; /* Make each navbar item take full width */
+        text-align: left; /* Align text to the left */
+        margin-bottom: 15px; /* Add space between navbar items */
+        padding-left: 20px; /* Add left padding for better alignment */
+    }
+
+    .navbar ul li a {
+        display: block;
+        padding: 10px 0; /* Adjust padding for the link */
+        text-decoration: none; /* Remove underline from links */
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-top: 10px;
+    }
+
+    /* Ensure the navbar is hidden initially on mobile */
+    .navbar ul {
+        display: none;
+    }
+
+    .navbar.active ul {
+        display: block;
+    }
+}
+
+/* Responsive login form adjustments */
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%; /* Full width on smaller screens */
+        padding: 10px;
+    }
+}
+
+/* Hide menu toggle and show the full navbar on larger screens */
+.menu-toggle {
+    display: none; /* Hide by default */
+}
+
+/* Display the menu toggle only on screens smaller than 768px */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show toggle button */
+        cursor: pointer;
+        font-size: 1.5em;
+    }
+
+    /* Hide the navbar items initially on mobile screens */
+    .navbar ul {
+        display: none;
+        flex-direction: column; /* Stack the items vertically */
+        background-color: #fff; /* Adjust background as needed */
+    }
+
+    /* Display the menu when 'active' class is added */
+    .navbar ul.active {
+        display: flex;
+    }
+}
+/* Add a checkmark for completed tasks */
+.box li.done::before {
+    content: "✔"; /* Add checkmark symbol */
+    margin-right: 10px;
+    color: green; /* Green checkmark color */
+    font-size: 18px;
+}
+
+/* Style for completed tasks */
+.box li.done {
+    background-color: #d3f9d8; /* Light green background */
+    color: #333;
+    text-decoration: line-through; /* Strike-through the text */
+}
+
+.box li:hover {
+    background: #4aa6f8;
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+

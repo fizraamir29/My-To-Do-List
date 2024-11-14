@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html" id="loginLink"><span class="login-icon">🔒</span> Login</a></li>
+        </ul>
+        <div class="menu-toggle">☰</div>
+    </nav>
+
+
+
+    <!-- To-Do List Section -->
+    <div class="container">
+        <div class="box">
+            <h2>To Do List</h2>
+            <input type="text" id="inputBx" placeholder="Type here...">
+            <ul id="List"></ul>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Fizra Amir</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+    <script>
+        // Function to check login status and update the navbar
+        function checkLoginStatus() {
+            const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+            const loginLink = document.getElementById("loginLink");
+
+            if (isLoggedIn === "true") {
+                const username = sessionStorage.getItem("username");
+                loginLink.textContent = "Logout"; // Change Login to Logout
+                loginLink.href = "#"; // Disable the login link
+                loginLink.addEventListener("click", logout); // Add logout function on click
+            } else {
+                loginLink.textContent = "Login"; // Default state
+                loginLink.href = "login.html"; // Redirect to login page
+            }
+        }
+
+        // Logout function
+        function logout() {
+            sessionStorage.clear(); // Clear session storage
+            window.location.href = "login.html"; // Redirect to login page after logging out
+        }
+
+        // Call the checkLoginStatus function when the page loads
+        window.onload = checkLoginStatus;
+    </script>
+</body>
+
+</html>
